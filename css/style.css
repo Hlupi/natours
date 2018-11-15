@@ -48,6 +48,10 @@ body {
   /* counting from the parent element position relative */
 }
 
+/* .logo-box:hover .logo {
+  animation: moveInRight 1s ease-out;
+} */
+
 .logo {
   height: 35px;
   /* width scaled accordingly by browser - same other way around */
@@ -61,6 +65,7 @@ body {
   transform: translate(-50%, -50%);
   /* no longer in relation to the parent, but to the element itself
   half of the left to the left and half to the top */
+  text-align: center;
 }
 
 .heading-primary {
@@ -70,6 +75,7 @@ body {
   backface-visibility: hidden;
   /* to remove the shaking to the top at the end of animation
   USEFUL IN ROTATION */
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -126,4 +132,77 @@ body {
     opacity: 1;
     transform: translate(0);
   }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  /* treated as text */
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  /* x y blur  */
+}
+
+.btn:active {
+  /* when clicked */
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after {
+  /* treate as a child element */
+  content: '';
+  display: inline-block;
+  /* always necessary */
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  /* in respect to the button */
+  position: absolute;
+  /* needs reference to the relative */
+  top: 0;
+  left: 0;
+  /* to put it behind */
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-in-out 0.75s;
+  animation-fill-mode: backwards;
 }
