@@ -1,0 +1,42 @@
+.header {
+  height: 95vh;
+  /* at any point its 95% of the vieuwport height */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  /* whatever the width of the viewport ot element, always try to fit the el inside of the box */
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* clip-path: polygon(x y, x y,
+  x y, x y) clockwise */
+  position: relative;
+
+  &__logo-box {
+    position: absolute;
+    /* top: 40px;
+    left: 40px; */
+    top: 4rem;
+    left: 4rem;
+    /* counting from the parent element position relative */
+  }
+
+  &__logo {
+    height: 3.5rem;
+    /* width scaled accordingly by browser - same other way around */
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* in relation to the parent */
+    transform: translate(-50%, -50%);
+    /* no longer in relation to the parent, but to the element itself
+    half of the left to the left and half to the top */
+    text-align: center;
+  }
+}
