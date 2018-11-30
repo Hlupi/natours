@@ -23,18 +23,23 @@
     width: 15rem;
     height: 15rem;
     float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    //where the content floats around teh element
-    //radius - center hor - center vert
-    //has to be floated and have dimensions: width and height
-
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-    //if we wnat the element to actually look like circle
     transform: translateX(-3rem) skewX(12deg);
     //best not to mess with margins/paddings when working with floats
     position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      //if we wnat the element to actually look like circle
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      //where the content floats around teh element
+      //radius - center hor - center vert
+      //has to be floated and have dimensions: width and height
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);
