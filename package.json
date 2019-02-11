@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Landing page for natours",
   "main": "index.js",
-  "author": "Iuliia Ashikhmina <yu.ashikhmina@gmail.com>",
+  "author": "Hlupi",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^9.3.1",
